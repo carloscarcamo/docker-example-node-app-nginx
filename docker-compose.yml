@@ -1,0 +1,26 @@
+nginx:
+    build: ./nginx/
+    ports:
+        - "8080:80"
+    links:
+        - node:node
+    container_name: nginx
+
+mongo:
+    build: ./mongo/
+    ports:
+        - "27017:27017"
+    container_name: mongo
+    volumes:
+        - /home/
+node:
+    build: ./node/
+    ports:
+        - "8080"
+    links:
+        - mongo:mongo
+    #external_links:
+    #    - mongo
+    container_name: todo-app
+    volumes_from:
+        - mongo
