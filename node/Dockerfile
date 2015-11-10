@@ -9,6 +9,6 @@ RUN cd /var/www/app && \
 
 WORKDIR /var/www/app
 
-EXPOSE 8080
+EXPOSE 3000
 
-CMD ["nodemon", "app.js"]
+CMD sleep 5 && nodemon app.js
