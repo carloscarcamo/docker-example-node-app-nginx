@@ -126,7 +126,7 @@ Para probar que la app esta ejecutandose ir a: [localhost](http://localhost)
 
 Para permitir que la app use un dominio como www.example.com, debemos editar el archivo ```/etc/hosts``` y agregar el dominio que queremos usar.
 
-Para este ejemplo estamos usando un dominio de prueba llamado **www.node-app.dev** tal y como se ha configurado en: ```nginx/nginx.conf```. Pasemos a editar ```/etc/hosts/``` y agregamos lo siguiente:
+Para este ejemplo estamos usando un dominio de prueba llamado **www.node-app.dev** tal y como se ha configurado en: ```nginx/nginx.conf```. Pasemos a editar ```/etc/hosts``` y agregamos lo siguiente:
 
 ```
 127.0.0.5	node-app.dev www.node-app.dev
