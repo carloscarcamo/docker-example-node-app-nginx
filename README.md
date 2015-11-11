@@ -70,7 +70,7 @@ $ sudo docker run -t debian echo "Hola UES"
 
 ## Descargar app de prueba
 
-**Nota:** es necesario tener instalado [git](https://git-scm.com/download/linux) para que el script no de problemas.
+**Nota:** *es necesario tener instalado [git](https://git-scm.com/download/linux) para que el script no de problemas.*
 
 El script ```init.sh``` no hace más que descargar un proyecto base de node.js, moverlo a la carpeta ```node/``` y editar el archivo ```app.js``` para que se conecte correctamente al contenedor de mongodb.
 
@@ -106,7 +106,9 @@ En la documentación oficial hay más información de como instalar docker-compo
 
 ### Desplegar app con docker-compose
 
-La configuración necesaria para contruir las imagenes de docker esta en el archivo ```docker-compose.yml```.
+**Nota:** *Usaremos el puerto 80 para este ejemplo, hay que asegurarse que ese puerto no este ocupado por otro servicio.*
+
+La configuración necesaria para construir las imagenes de docker esta en el archivo ```docker-compose.yml```.
 
 Construir las imagenes
 
@@ -120,4 +122,14 @@ Iniciar los Contenedores
 $ sudo docker-compose up
 ```
 
-Para probar que la app esta ejecutandose ir a: [localhost:8080](localhost:8080)
+Para probar que la app esta ejecutandose ir a: [localhost](http://localhost)
+
+Para permitir que la app use un dominio como www.example.com, debemos editar el archivo ```/etc/hosts``` y agregar el dominio que queremos usar.
+
+Para este ejemplo estamos usando un dominio de prueba llamado **www.node-app.dev** tal y como se ha configurado en: ```nginx/nginx.conf```. Pasemos a editar ```/etc/hosts/``` y agregamos lo siguiente:
+
+```
+127.0.0.5	node-app.dev www.node-app.dev
+```
+
+Probemos que esto ha funcionado, vamos a: [node-app.dev](http://node-app.dev)
