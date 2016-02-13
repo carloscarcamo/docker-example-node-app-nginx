@@ -11,4 +11,4 @@ WORKDIR /var/www/app
 
 EXPOSE 3000
 
-CMD sleep 5 && nodemon app.js
+CMD nodemon app.js

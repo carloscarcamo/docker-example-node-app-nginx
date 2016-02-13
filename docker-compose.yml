@@ -24,3 +24,6 @@ node:
     container_name: todo-app
     volumes_from:
         - mongo
+    environment:
+        MONGOLAB_URI: "mongodb://mongo/todos"
+        PORT: 3000

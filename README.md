@@ -1,15 +1,15 @@
-Taller Docker, Contenedores Linux
-=================================
+Dockerizando web apps - Docker El Salvador
+==========================================
 
 Ejemplo básico para desplegar una app con node + mongodb + nginx
 
 Este proyecto contiene dos archivos de configuración y tres directorios, cada uno con un Dockerfile:
 
-- **mongo/Dockerfile:** para crear una imagen de mongodb
-- **nginx/Dockerfile:** para crear una imagen de nginx
-- **node/Dockerfile:** para crear una imagen de node.js
-- **init.sh:** descarga el proyecto de node de prueba para desplegar con docker
-- **docker-compose.yml:** archivo para orquestar el despliegue de la app.
+- `mongo/Dockerfile`: para crear una imagen de mongodb
+- `nginx/Dockerfile`: para crear una imagen de nginx
+- `node/Dockerfile`: para crear una imagen de node.js
+- `init.sh`: descarga el proyecto de node de prueba para desplegar con docker
+- `docker-compose.yml`: archivo para orquestar el despliegue de la app.
 
 # Instrucciones
 
@@ -31,7 +31,7 @@ Agregar gpg key
 $ apt-key adv --keyserver hkp://pgp.mit.edu:80 --recv-keys 58118E89F3A912897C070ADBF76221572C52609D
 ```
 
-Agregar lo siguiente a ```/etc/apt/sources.list.d/docker.list```:
+Agregar lo siguiente a `/etc/apt/sources.list.d/docker.list`:
 
 ```
 # Debian Jessie
@@ -65,14 +65,14 @@ $ sudo service docker start
 Verificar que docker esta corriendo:
 
 ```
-$ sudo docker run -t debian echo "Hola UES"
+$ sudo docker run -t debian echo "Docker El Salvador"
 ```
 
 ## Descargar app de prueba
 
 **Nota:** *es necesario tener instalado [git](https://git-scm.com/download/linux) para que el script no de problemas.*
 
-El script ```init.sh``` no hace más que descargar un proyecto base de node.js, moverlo a la carpeta ```node/``` y editar el archivo ```app.js``` para que se conecte correctamente al contenedor de mongodb.
+El script `init.sh` no hace más que descargar un proyecto hecho con node.js, moverlo a la carpeta `node/` y editar el archivo `app.js` para que se conecte correctamente al contenedor de mongodb.
 
 ```
 $ chmod +x init.sh && ./init.sh
@@ -126,7 +126,7 @@ Para probar que la app esta ejecutandose ir a: [localhost](http://localhost)
 
 Para permitir que la app use un dominio como www.example.com, debemos editar el archivo ```/etc/hosts``` y agregar el dominio que queremos usar.
 
-Para este ejemplo estamos usando un dominio de prueba llamado **www.node-app.dev** tal y como se ha configurado en: ```nginx/nginx.conf```. Pasemos a editar ```/etc/hosts``` y agregamos lo siguiente:
+Para este ejemplo estamos usando un dominio de prueba llamado **www.node-app.dev** tal y como se ha configurado en: `nginx/nginx.conf`. Pasemos a editar `/etc/hosts` y agregamos lo siguiente:
 
 ```
 127.0.0.5	node-app.dev www.node-app.dev
